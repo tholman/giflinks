@@ -64,3 +64,11 @@ article a {
 	color: rgb(245, 90, 3);
 	font-style: italic;
 }
+
+.github-link {
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  right: 0;
+  border: 0;
+}
