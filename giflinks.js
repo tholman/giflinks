@@ -1,6 +1,8 @@
 var GifLinks = (function() {
 
   'use strict';
+  var body;
+  var container;
     
   /* -------------------------
   /*          UTILS
@@ -51,25 +53,57 @@ var GifLinks = (function() {
     if( element.getAttribute( 'data-src' ) ) {
 
       element.addEventListener( 'mouseover', function() {
-        activate( this ); // Start the party!
+        startPartying( this ); // "Party on Wayne" ~ "Party on Garth"
       },  false ); 
 
       element.addEventListener( 'mouseout',  function() {
-        deactivate(); // End the party, aww :(
+        stopParting(); // Someone called the cops.
       }, false); 
     }
   }
 
-  function activate( element ) {
-    console.log( "activate!", element )
+  // Create and cache the gif container.
+  function createContainer() {
+
+    var containerProperties = {
+      'backgroundPosition': '50% 50%',
+      'backgroundSize': 'cover',
+      'pointerEvents': 'none',
+      'position': 'fixed',
+      'zIndex': '999999',
+      'height': '100%',
+      'width': '100%',
+      'margin': '0px',
+      'left': '0px',
+      'top': '0px'
+    }
+
+    container = document.createElement( 'div' );
+    applyProperties( container, containerProperties );
   }
 
-  function deactivate() {
-    console.log( "aww" )
+  // Add the background to the container, and the container to the page!
+  function startPartying( element ) {
+
+    var awesomeGif = element.getAttribute( 'data-src' )
+    if( awesomeGif ) {
+      container.style[ 'backgroundImage' ] = 'url(' + awesomeGif + ')';
+      body.appendChild( container );
+    }
+  }
+
+  // Remove the container
+  function stopParting() {
+    
+    body.removeChild( container );
   }
 
 
   function main() {
+
+    // Caching
+    body = document.body;
+    createContainer();
 
     // Gather elements, initialize giflinks
     var elements = document.querySelectorAll( '.giflink' );

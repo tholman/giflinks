@@ -51,3 +51,8 @@ article {
 	margin-top: 70px;
 	line-height: 34px;
 }
+
+article a {
+	color: rgb(245, 90, 3);
+	font-style: italic;
+}
