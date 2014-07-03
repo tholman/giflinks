@@ -95,6 +95,7 @@ var GifLinks = (function() {
   // Remove the container
   function stopParting() {
     
+    container.style[ 'backgroundImage' ] = '';
     body.removeChild( container );
   }
 
