@@ -71,15 +71,17 @@ var GifLinks = (function() {
       'pointerEvents': 'none',
       'position': 'fixed',
       'zIndex': '999999',
+      'display': 'none',
       'height': '100%',
       'width': '100%',
       'margin': '0px',
       'left': '0px',
-      'top': '0px'
+      'top': '0px',
     }
 
     container = document.createElement( 'div' );
     applyProperties( container, containerProperties );
+    body.appendChild( container );
   }
 
   // Add the background to the container, and the container to the page!
@@ -88,15 +90,15 @@ var GifLinks = (function() {
     var awesomeGif = element.getAttribute( 'data-src' )
     if( awesomeGif ) {
       container.style[ 'backgroundImage' ] = 'url(' + awesomeGif + ')';
-      body.appendChild( container );
+      container.style[ 'display' ] = 'block';
     }
   }
 
-  // Remove the container
+  // Hide the container
   function stopParting() {
     
+    container.style[ 'display' ] = 'none';
     container.style[ 'backgroundImage' ] = '';
-    body.removeChild( container );
   }
 
 
