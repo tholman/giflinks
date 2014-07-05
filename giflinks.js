@@ -67,6 +67,8 @@ var GifLinks = (function() {
   // Adds classes to do with giflink status (has link etc)
   function addClasses( element ) {
 
+    element.className += ' giflink';
+
     if ( element.href ) {
       element.className += ' has-link';
     } else {
@@ -114,14 +116,13 @@ var GifLinks = (function() {
   }
 
 
-  function main() {
+  function main( elements ) {
 
     // Caching
     body = document.body;
     createContainer();
 
-    // Gather elements, initialize giflinks
-    var elements = document.querySelectorAll( '.giflink' );
+    // Initialize giflinks
     init( elements );
   }
 

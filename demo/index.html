@@ -23,10 +23,10 @@
         </header>
         <article>
             <p>
-                Since the <a class="giflink" data-src="./img/header_back.gif">dawn of the internet</a> the world has been asking: "Why are pages so <a class="giflink" data-src="./img/bored.gif">boring</a>?" Only recently has a new paradigm arisen to <a class="giflink" data-src="./img/solve.gif">solve</a> this emotionally crippling problem. Designers call them Giflinks.
+                Since the <a data-src="./img/header_back.gif">dawn of the internet</a> the world has been asking: "Why are pages so <a class="giflink" data-src="./img/bored.gif">boring</a>?" Only recently has a new paradigm arisen to <a data-src="./img/solve.gif">solve</a> this emotionally crippling problem. Designers call them Giflinks.
             </p>
             <p>
-                It is a little known fact, but 9 out of 10 UX <a class="giflink" data-src="./img/specialists.gif">specialists</a> agree that giflinks provide a richer, more enhanced user experience, which can be tailored specifically for the <a class="giflink" data-src="./img/enjoyment.gif">enjoyment</a> of your audience.
+                It is a little known fact, but 9 out of 10 UX <a data-src="./img/specialists.gif">specialists</a> agree that giflinks provide a richer, more enhanced user experience, which can be tailored specifically for the <a data-src="./img/enjoyment.gif">enjoyment</a> of your audience.
             </p>
             <p>
                 This javascript library will help you bring Giflinks to your site, house, and home!
@@ -41,7 +41,8 @@
         </a>
 
         <script>
-            GifLinks();
+            var elements = document.querySelectorAll( 'article a' );
+            GifLinks( elements );
         </script>
     </body>
 </html>
