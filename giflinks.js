@@ -59,6 +59,18 @@ var GifLinks = (function() {
       element.addEventListener( 'mouseout',  function() {
         stopParting(); // Someone called the cops.
       }, false); 
+
+      addClasses( element );
+    }
+  }
+
+  // Adds classes to do with giflink status (has link etc)
+  function addClasses( element ) {
+
+    if ( element.href ) {
+      element.className += ' has-link';
+    } else {
+      element.className += ' no-link';
     }
   }
 
