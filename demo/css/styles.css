@@ -44,7 +44,7 @@ header .front img {
 
 header .back {
 	background-size: cover;
-	background-position: 50% 17%;
+	background-position: 50% 100%;
 	background-image: url('../img/header_back.gif');
 	z-index: 1;
 }
@@ -52,7 +52,7 @@ header .back {
 article {
 	max-width: 1000px;
 	margin: auto;
-	font-family: georgia;
+	font-family: Georgia, Times, "Times New Roman", serif;
 	font-size: 26px;
 	letter-spacing: 0.1px;
 	text-align: justify;
@@ -60,9 +60,32 @@ article {
 	line-height: 34px;
 }
 
-article a {
+article .giflink {
 	color: rgb(245, 90, 3);
 	font-style: italic;
+}
+
+article .no-link {
+	cursor: default;
+}
+
+.final {
+	text-align: center;
+	font-size: 16px;
+	font-style: italic;
+	margin-top: 60px;
+	margin-bottom: 40px;
+}
+
+iframe {
+  margin-bottom: -4px;
+  margin-left: 2px;
+}
+
+.final a, .final iframe {
+	margin-right: 8px;
+	margin-left: 8px;
+	color: #111;
 }
 
 .github-link {

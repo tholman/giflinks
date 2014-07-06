@@ -33,41 +33,66 @@ var GifLinks = (function() {
   /* -------------------------*/
 
   // Initialize
-  function init( elements ) {
+  function init( elements, preload ) {
 
     if ( elements.length ) {
 
       // Loop and assign
       for( var i = 0; i < elements.length; i++ ) {
-        track( elements[ i ] );
+
+        if ( preload === true ) {
+          preloadAndTrack( elements[ i ] );
+        } else {
+          track( elements[ i ] );
+        }
       }
 
     } else {
+        
+       if ( preload === true ) {
+        preloadAndTrack( elements );
+      } else {
         track( elements );
+      }
     }
   }
 
+  // Start tracking after preload
+  function preloadAndTrack( element ) {
+
+    var awesomeGif = element.getAttribute( 'data-src' );
+    if ( awesomeGif ) {
+
+      console.log( "preloading: ", awesomeGif );
+      // Load the image
+      var img = new Image();
+      img.onload = function() {
+        track( element )
+      }
+
+      img.src = awesomeGif;
+    }
+  }
+
+  // Start tracking mouse hovers
   function track( element ) {
 
     // Only track if the element has a gif source!
-    if( element.getAttribute( 'data-src' ) ) {
+    element.addEventListener( 'mouseover', function() {
+      startPartying( this ); // "Party on Wayne" ~ "Party on Garth"
+    },  false ); 
 
-      element.addEventListener( 'mouseover', function() {
-        startPartying( this ); // "Party on Wayne" ~ "Party on Garth"
-      },  false ); 
+    element.addEventListener( 'mouseout',  function() {
+      stopParting(); // Someone called the cops.
+    }, false); 
 
-      element.addEventListener( 'mouseout',  function() {
-        stopParting(); // Someone called the cops.
-      }, false); 
-
-      addClasses( element );
-    }
+    addClasses( element );
   }
 
   // Adds classes to do with giflink status (has link etc)
   function addClasses( element ) {
 
-    element.className += ' giflink';
+    element.className += ' giflink ready';
 
     if ( element.href ) {
       element.className += ' has-link';
@@ -101,10 +126,12 @@ var GifLinks = (function() {
   // Add the background to the container, and the container to the page!
   function startPartying( element ) {
 
-    var awesomeGif = element.getAttribute( 'data-src' )
+    var awesomeGif = element.getAttribute( 'data-src' );
     if( awesomeGif ) {
       container.style[ 'backgroundImage' ] = 'url(' + awesomeGif + ')';
       container.style[ 'display' ] = 'block';
+    } else {
+      console.log( "Sorry, an element doesn't have a data-src!" );
     }
   }
 
@@ -116,14 +143,19 @@ var GifLinks = (function() {
   }
 
 
-  function main( elements ) {
+  function main( elements, options ) {
 
     // Caching
     body = document.body;
     createContainer();
 
+    var preload = false;
+    if ( options && options.preload ) {
+      preload = !!options.preload;
+    }
+
     // Initialize giflinks
-    init( elements );
+    init( elements, preload );
   }
 
   return extend( main, {
