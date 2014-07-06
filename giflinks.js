@@ -63,10 +63,11 @@ var GifLinks = (function() {
     var awesomeGif = element.getAttribute( 'data-src' );
     if ( awesomeGif ) {
 
-      console.log( "preloading: ", awesomeGif );
       // Load the image
       var img = new Image();
       img.onload = function() {
+
+        element.className += ' preloaded'
         track( element )
       }
 
