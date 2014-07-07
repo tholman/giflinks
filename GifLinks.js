@@ -3,7 +3,8 @@ var GifLinks = (function() {
   'use strict';
   var body;
   var container;
-    
+  var audio;
+
   /* -------------------------
   /*          UTILS
   /* -------------------------*/
@@ -22,7 +23,6 @@ var GifLinks = (function() {
 
   // Applys a dict of css properties to an element
   function applyProperties( target, properties ) {
-
     for( var key in properties ) {
       target.style[ key ] = properties[ key ];
     }
@@ -117,17 +117,17 @@ var GifLinks = (function() {
       'width': '100%',
       'margin': '0px',
       'left': '0px',
-      'top': '0px',
-    }
+      'top': '0px'
+   }
 
     container = document.createElement( 'div' );
     applyProperties( container, containerProperties );
+    container
     body.appendChild( container );
   }
 
   // Add the background to the container, and the container to the page!
   function startPartying( element ) {
-
     var awesomeGif = element.getAttribute( 'data-src' );
     if( awesomeGif ) {
       container.style[ 'backgroundImage' ] = 'url(' + awesomeGif + ')';
@@ -135,12 +135,20 @@ var GifLinks = (function() {
     } else {
       console.log( "Sorry, an element doesn't have a data-src!" );
     }
+    
+    if (audio)
+      audio.pause();
+    var awesomeAudio = element.getAttribute( 'data-audio' );
+    if (awesomeAudio) {
+      audio = new Audio(awesomeAudio);
+      audio.play();
+    }
   }
 
   // Hide the container
   function stopParting() {
-    
-    console.log( "stop!" );
+    if (audio)
+      audio.pause();
     container.style[ 'display' ] = 'none';
     container.style[ 'backgroundImage' ] = '';
   }
