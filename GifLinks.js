@@ -79,13 +79,13 @@ var GifLinks = (function() {
   function track( element ) {
 
      // "Party on Wayne" ~ "Party on Garth"
-    element.addEventListener( 'mouseover',  function() { startPartying( this ); }, false );
-    element.addEventListener( 'touchstart', function() { startPartying( this ); }, false);
+    element.addEventListener( 'mouseover',  function( event ) { event.preventDefault(); startPartying( this ); }, false );
+    element.addEventListener( 'touchstart', function( event ) { event.preventDefault(); startPartying( this ); }, false);
 
     // Someone called the cops.
-    element.addEventListener( 'mouseout',   function() { stopParting(); }, false);
-    element.addEventListener( 'touchleave', function() { stopParting(); }, false);
-    element.addEventListener( 'touchend',   function() { stopParting(); }, false);
+    element.addEventListener( 'mouseout',   function( event ) { event.preventDefault(); stopParting(); }, false);
+    element.addEventListener( 'touchleave', function( event ) { event.preventDefault(); stopParting(); }, false);
+    element.addEventListener( 'touchend',   function( event ) { event.preventDefault(); stopParting(); }, false);
 
     addClasses( element );
   }
