@@ -9,12 +9,14 @@
  	-webkit-font-smoothing: antialiased;
  	-moz-box-sizing: border-box;
  	box-sizing: border-box;
- }
+ 	max-height: 1000000px;
+}
 
 body {
-	padding-left: 20px;
-	padding-right: 20px;
-	min-width: 640px;
+	-webkit-text-size-adjust: none;
+	padding-left: 80px;
+	padding-right: 80px;
+	min-width: 900px;
 }
 
 header {
