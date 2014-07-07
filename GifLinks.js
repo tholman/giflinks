@@ -3,7 +3,7 @@ var GifLinks = (function() {
   'use strict';
   var body;
   var container;
-    
+
   /* -------------------------
   /*          UTILS
   /* -------------------------*/
@@ -16,7 +16,7 @@ var GifLinks = (function() {
         target[ key ] = source[ key ];
       }
     }
-    
+
     return target;
   }
 
@@ -48,7 +48,7 @@ var GifLinks = (function() {
       }
 
     } else {
-        
+
        if ( preload === true ) {
         preloadAndTrack( elements );
       } else {
@@ -83,10 +83,10 @@ var GifLinks = (function() {
     element.addEventListener( 'touchstart', function() { startPartying( this ); }, false);
 
     // Someone called the cops.
-    element.addEventListener( 'mouseout',     function() { stopParting(); }, false);
-    element.addEventListener( 'touchmove',    function( event ) { event.preventDefault(); stopParting(); }, false);
-    element.addEventListener( 'click',        function() { stopParting(); }, false);
-    element.addEventListener( 'dblclick',     function() { stopParting(); }, false);
+    element.addEventListener( 'mouseout',     function() { stopPartying(); }, false);
+    element.addEventListener( 'touchmove',    function( event ) { event.preventDefault(); stopPartying(); }, false);
+    element.addEventListener( 'click',        function() { stopPartying(); }, false);
+    element.addEventListener( 'dblclick',     function() { stopPartying(); }, false);
 
     addClasses( element );
   }
@@ -138,8 +138,8 @@ var GifLinks = (function() {
   }
 
   // Hide the container
-  function stopParting() {
-    
+  function stopPartying() {
+
     console.log( "stop!" );
     container.style[ 'display' ] = 'none';
     container.style[ 'backgroundImage' ] = '';
@@ -162,7 +162,7 @@ var GifLinks = (function() {
   }
 
   return extend( main, {
-      
+
   });
 
 })();
