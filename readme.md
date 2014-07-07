@@ -63,6 +63,12 @@ window.onload = function() {
 </script>
 ```
 
+For the ultimate audio-visual experience you can also trigger play back of MP3s:
+
+```html
+<a href="awesome.html" data-src="./img/audio.gif" data-audio="./audio/audio.mp3"> Rock out! </a>
+```
+
 #### CSS
 There are a few little things to play with, when it comes to css.
 
