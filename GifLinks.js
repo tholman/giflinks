@@ -78,14 +78,14 @@ var GifLinks = (function() {
   // Start tracking mouse hovers
   function track( element ) {
 
-    // Only track if the element has a gif source!
-    element.addEventListener( 'mouseover', function() {
-      startPartying( this ); // "Party on Wayne" ~ "Party on Garth"
-    },  false ); 
+     // "Party on Wayne" ~ "Party on Garth"
+    element.addEventListener( 'mouseover',  function() { startPartying( this ); }, false );
+    element.addEventListener( 'touchstart', function() { startPartying( this ); }, false);
 
-    element.addEventListener( 'mouseout',  function() {
-      stopParting(); // Someone called the cops.
-    }, false); 
+    // Someone called the cops.
+    element.addEventListener( 'mouseout',   function() { stopParting(); }, false);
+    element.addEventListener( 'touchleave', function() { stopParting(); }, false);
+    element.addEventListener( 'touchend',   function() { stopParting(); }, false);
 
     addClasses( element );
   }
