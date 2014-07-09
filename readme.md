@@ -27,7 +27,7 @@ GifLinks.js is fairly robust when it comes to assigning elements to be used, its
 
 <script>
 window.onload = function() {
-	// Intensify all images on the page.
+	// Add GifLinks to all anchor tags on the page!
     var element = document.querySelector( 'a' );
 	GifLinks( element );
 }
@@ -42,7 +42,7 @@ Or doing multiple at once, with a classname.
 
 <script>
 window.onload = function() {
-	// Intensify all images with the 'intense' classname.
+	// Giflinkify all images with the 'giflink-to-be' classname.
     var elements = document.querySelectorAll( '.giflink-to-be' );
 	GifLinks( elements );
 }
@@ -56,7 +56,7 @@ You can also pass in an option to preload the image, In this case the giflinks w
 
 <script>
 window.onload = function() {
-	// Intensify all images on the page.
+	// Add GifLinks to all a tags on the page, and preload!
     var element = document.querySelector( 'a' );
 	GifLinks( element, { preload: true } );
 }
