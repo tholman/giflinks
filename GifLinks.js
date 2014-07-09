@@ -140,7 +140,6 @@ var GifLinks = (function() {
   // Hide the container
   function stopPartying() {
 
-    console.log( "stop!" );
     container.style[ 'display' ] = 'none';
     container.style[ 'backgroundImage' ] = '';
   }
