@@ -8,7 +8,7 @@ GifLinks is a stand alone library (no jquery, or the likes) so usage is pretty s
 
 #### HTML
 
-There aren't many restrictions for the `html` elements you want to use to activate GifLinks, the one manditory attribute a `data-src`, which needs to point to the gif/image you wish to flash up when hovering.
+There aren't many restrictions for the `html` elements you want to use to activate GifLinks, the one mandatory attribute a `data-src`, which needs to point to the gif/image you wish to flash up when hovering.
 
 ```html
 <a href="awesome.html" data-src="./img/awesome.gif"> Check this out! </a>
