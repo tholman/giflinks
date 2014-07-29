@@ -129,9 +129,11 @@ var GifLinks = (function() {
   function startPartying( element ) {
 
     var awesomeGif = element.getAttribute( 'data-src' );
+    var awesomeGifClass = awesomeGif.substring(0,awesomeGif.length-4);
     if( awesomeGif ) {
       container.style[ 'backgroundImage' ] = 'url(' + awesomeGif + ')';
       container.style[ 'display' ] = 'block';
+      container.className = awesomeGifClass;
     } else {
       console.log( "Sorry, an element doesn't have a data-src!" );
     }
