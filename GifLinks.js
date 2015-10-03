@@ -117,7 +117,7 @@ var GifLinks = (function() {
       'width': '100%',
       'margin': '0px',
       'left': '0px',
-      'top': '0px',
+      'top': '0px'
     }
 
     container = document.createElement( 'div' );
